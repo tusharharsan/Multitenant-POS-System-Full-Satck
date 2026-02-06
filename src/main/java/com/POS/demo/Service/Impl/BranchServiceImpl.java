@@ -29,7 +29,7 @@ public class BranchServiceImpl implements BranchService {
     @Override
     public BranchDto createBranch(BranchDto branchDto, User user) throws Exception {
         User currentuser = userService.GetCurrentUser();
-        Store store = storeRepository.findByStoreAdmin_Id(currentuser.getId());
+        Store store = storeRepository.findByStoreAdminId(currentuser.getId());
 
         Branch branch = BranchMapper.toEntity(branchDto ,store);
 
@@ -56,22 +56,27 @@ public class BranchServiceImpl implements BranchService {
         Branch updatedBranch = branchRepository.save(existing);
         return BranchMapper.toDto(updatedBranch);
 
-        
-        //video left at 5:45 time
     }
 
     @Override
-    public BranchDto deleteBranch(Long id) throws Exception {
-        return null;
+    public void deleteBranch(Long id) throws Exception {
+        Branch existing  = branchRepository.findById(id).orElseThrow(
+                () -> new Exception("Branch not found")
+        );
+        branchRepository.delete(existing);
     }
 
     @Override
     public List<BranchDto> getAllBranchesByStore(Long storeId) {
-        return List.of();
+        List<Branch> branches = branchRepository.findByStoreId(storeId);
+        return branches.stream().map(BranchMapper::toDto).toList();
     }
 
     @Override
     public BranchDto getBranchById(Long id) throws Exception {
-        return null;
+        Branch existing = branchRepository.findById(id).orElseThrow(
+                () -> new Exception("Branch not found")
+        );
+        return BranchMapper.toDto(existing);
     }
 }

@@ -32,7 +32,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public StoreDto getStoreById(Long id) throws Exception {
-        Store store = storeRepository.findByStoreAdmin_Id(id);
+        Store store = storeRepository.findByStoreAdminId(id);
         if(store==null){
             throw new Exception("Store not found");
         }
@@ -48,13 +48,13 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store getStoreByAdmin() throws UserException {
         User admin = userService.GetCurrentUser();
-        return storeRepository.findByStoreAdmin_Id(admin.getId());
+        return storeRepository.findByStoreAdminId(admin.getId());
     }
 
     @Override
     public StoreDto updateStore(Long id, StoreDto storeDto) throws UserException {
         User user = userService.GetCurrentUser();
-        Store existing = storeRepository.findByStoreAdmin_Id(user.getId());
+        Store existing = storeRepository.findByStoreAdminId(user.getId());
         if(existing==null){
             throw new UserException("Store not found");
         }

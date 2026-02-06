@@ -11,7 +11,7 @@ public class BranchMapper {
     public static BranchDto toDto(Branch branch){
         return BranchDto.builder()
                 .id(branch.getId())
-                .BranchName(branch.getBranchName())
+                .branchName(branch.getBranchName())
                 .address(branch.getAddress())
                 .phone(branch.getPhone())
                 .email(branch.getEmail())

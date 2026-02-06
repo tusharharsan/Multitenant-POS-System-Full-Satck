@@ -21,17 +21,17 @@ public class Store {
     private Long id;
 
     @Column(nullable = false)
-    private String BrandName;
+    private String brandName;
 
     @OneToOne
-    private User StoreAdmin;
+    private User storeAdmin;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     private String description;
 
-    private String StoreType;
+    private String storeType;
 
     private StoreStatus status;
 

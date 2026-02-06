@@ -15,17 +15,17 @@ public class StoreDto {
     private Long id;
 
 
-    private String BrandName;
+    private String brandName;
 
 
-    private UserDto StoreAdmin;
+    private UserDto storeAdmin;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     private String description;
 
-    private String StoreType;
+    private String storeType;
 
     private StoreStatus status;
 

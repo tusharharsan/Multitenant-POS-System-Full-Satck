@@ -4,7 +4,7 @@ import com.POS.demo.modal.Store;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StoreRepository extends JpaRepository<Store , Long> {
-    Store findByStoreAdmin_Id(Long id);
+    Store findByStoreAdminId(Long id);
 
 
 }
