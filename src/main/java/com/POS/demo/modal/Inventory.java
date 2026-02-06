@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+@Entity
 @Data
-@Embeddable
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Inventory {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
