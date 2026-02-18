@@ -42,7 +42,7 @@ public class User {
     private String phone;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false , name="role" ,length=50)
     private UserRole role;
 
 

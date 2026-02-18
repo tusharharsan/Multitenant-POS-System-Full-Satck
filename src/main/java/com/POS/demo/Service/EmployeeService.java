@@ -12,7 +12,7 @@ public interface EmployeeService {
     User updateEmployee(Long employeeId , UserDto employeeDetails) throws Exception;
     void deleteEmployee(Long employeeId);
     User findEmployeeById(Long employeeId);
-    List<User> findStoreEmployees(Long storeId , UserRole role);
-    List<User> findBranchEmployees(Long branchId, UserRole role);
+    List<UserDto> findStoreEmployees(Long storeId , UserRole role);
+    List<UserDto> findBranchEmployees(Long branchId, UserRole role);
 
 }
